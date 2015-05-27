@@ -1,9 +1,5 @@
 require 'spec_helper'
 
-describe 'bash_history_timestamp::default' do
-  # Serverspec examples can be found at
-  # http://serverspec.org/resource_types.html
-  it 'does something' do
-    skip 'Replace this with meaningful tests'
-  end
+describe "Ensure HISTTIMEFORMAT in .bashprofile" do
+	its (:content) { should contain("export HISTTIMEFORMAT='%F %R'") }
 end
