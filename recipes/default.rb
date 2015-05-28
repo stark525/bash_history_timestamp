@@ -12,12 +12,10 @@ file '/root/.ssh/.bash_profile' do
   action :create_if_missing	
 end
 
-ruby_block "ensure HISTTIMEFORMAT is in .bash_profile" do
-  block do
-    fe = Chef::Util::FileEdit.new("/root/.ssh/.bash_profile")
-    fe.insert_line_if_no_match(/export HISTTIMEFORMAT/, /export HISTTIMEFORMAT='#{node['bash_history_timestamp']['flags']}'/)
-    fe.write_file
-  end
+replace_or_add "HISTTIMEFORMAT to bash_profile" do
+  path "/root/.ssh/.bash_profile"
+  pattern "export HISTTIMEFORMAT*"
+  line "export HISTTIMEFORMAT='#{node['bash_history_timestamp']['flags']}'"
 end
 
 execute 'reload_shell' do
