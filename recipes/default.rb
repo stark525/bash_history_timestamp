@@ -4,21 +4,21 @@
 #
 # Copyright (c) 2015 Dan Stark <dstark75@gmail.com>, All Rights Reserved.
 
-directory '/root/.ssh' do
-  action :create
+file '/root/.bash_profile' do
+  action :create_if_missing
+  mode 0400
+  owner 'root'
+  group 'root'
 end
 
-file '/root/.ssh/.bash_profile' do
-  action :create_if_missing	
-end
-
-replace_or_add "HISTTIMEFORMAT to bash_profile" do
-  path "/root/.ssh/.bash_profile"
-  pattern "export HISTTIMEFORMAT*"
+replace_or_add 'HISTTIMEFORMAT' do
+  path '/root/.bash_profile'
+  pattern 'export HISTTIMEFORMAT*'
   line "export HISTTIMEFORMAT='#{node['bash_history_timestamp']['flags']}'"
+  notifies :run, 'bash[reload_shell]', :immediately
 end
 
-execute 'reload_shell' do
-  command 'source /root/.ssh/.bash_profile'
+bash 'reload_shell' do
+  code "source /root/.bash_profile"
   action :nothing
 end
