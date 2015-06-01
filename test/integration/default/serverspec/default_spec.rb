@@ -4,8 +4,11 @@ describe file('/root/.bash_profile')  do
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
   it { should be_mode 644 }
-  its (:content) { should contain("export HISTTIMEFORMAT='%F %R '") }
+  its (:content) { should contain("export HISTTIMEFORMAT='%F %T '") }
 end
 
-#   test if ~/.bash_history returns a date?
-#   ^/[0-9]{4}-[0-9]{2}-[0-9]{2}$/
+# Need to write a test that passes with stdout, but for some reason even something like this fails:
+describe command('history') do
+  its(:stdout) { should match /2015/ }
+end
+
