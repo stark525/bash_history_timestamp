@@ -5,6 +5,6 @@ license 'MIT'
 description 'Adds timestamp to user bash history'
 long_description 'Adds timestamp to .bash_profile, then reloads shell'
 
-version '0.2.1'
+version '0.2.2'
 
 depends 'line', '~> 0.6.1'
