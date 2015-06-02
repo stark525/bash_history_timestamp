@@ -7,7 +7,9 @@ describe file('/root/.bash_profile')  do
   its (:content) { should contain("export HISTTIMEFORMAT='%F %T '") }
 end
 
-# Need to write a test that passes with stdout, but for some reason even something like this fails:
-#describe command('history') do
-#  its(:stdout) { should match /2015/ }
-#end
+# Since history is a bash built-in,  command('history') fails.  We have to test in a slightly more complex way.
+# http://stackoverflow.com/questions/9716849/commands-available-in-bash-i-cant-access-in-bash-l
+# but this still doesn't work
+describe command('sudo echo "history" | sudo bash -l 2>/dev/null') do
+  its(:stdout) { should match /2015/  }
+end
