@@ -10,6 +10,6 @@ end
 # Since history is a bash built-in,  command('history') fails.  We have to test in a slightly more complex way.
 # http://stackoverflow.com/questions/9716849/commands-available-in-bash-i-cant-access-in-bash-l
 # but this still doesn't work
-describe command('sudo echo "history" | sudo bash -i 2>/dev/null') do
+describe command('sudo echo "history" | sudo bash -i 2> /dev/null') do
   its(:stdout) { should match /2015/  }
 end
