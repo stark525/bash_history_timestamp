@@ -11,5 +11,5 @@ end
 # http://stackoverflow.com/questions/9716849/commands-available-in-bash-i-cant-access-in-bash-l
 # but this still doesn't work
 describe command('sudo echo "history" | sudo bash -i 2> /dev/null') do
-  its(:stdout) { should match /2015/  }
+  its(:stdout) { should match /[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2} /  }
 end
