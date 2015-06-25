@@ -8,10 +8,10 @@ This simple cookbook adds timestamp logging to root's `~/.bashrc`.
 You can configure the way the timestamp is formatted in the attributes file.  Default format is `'%F %T '` which will format like 'YYYY-mm-dd hh:mm:ss '.
 
 ## Attributes
-### Configure formatting of history output. `man histtimeformat` for more info.
+Configure formatting of history output. `man histtimeformat` for more info.
 `['bash_history_timestamp']['flags'] = '%F %T '`
 
-### Full path to bash file, typically .bashrc or .bash_profile
+Full path to bash file, typically .bashrc or .bash_profile
 `default['bash_history_timestamp']['bash_file'] = '/root/.bashrc'`
 
 ## Testing
