@@ -10,5 +10,10 @@ platforms:
 
 suites:
   - name: default
+    attributes:
+      bash_history_timestamp:
+        managed_users:
+          - root
+          - testuser
     run_list:
       - recipe[bash_history_timestamp::default]
