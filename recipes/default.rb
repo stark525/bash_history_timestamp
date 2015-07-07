@@ -5,22 +5,6 @@
 # Copyright (c) 2015 Dan Stark <dstark75@gmail.com>, All Rights Reserved.
 
 
-#node['bash_history_timestamp']['managed_users'].each do |usr,_|
-
-
-
-#end
-
-
-#node['bash_history_timestamp']['managed_users'].each do |usr,_|
-
-
-#  bash 'reload_shell' do
-#    code "source #{node['etc']['passwd'][usr]['dir']}/.bashrc"
-#    action :nothing
-#  end
-#end
-
 node['bash_history_timestamp']['managed_users'].each do |usr,_|
   user usr do
     action :create
