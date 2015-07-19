@@ -3,7 +3,7 @@ maintainer 'Dan Stark'
 maintainer_email 'dstark75@gmail.com'
 license 'MIT'
 description 'Adds timestamp to user bash history'
-long_description 'Adds timestamp to .bash_profile, then reloads shell'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 source_url 'https://github.com/stark525/bash_history_timestamp'
 
 version '0.4.1'
