@@ -6,6 +6,6 @@ description 'Adds timestamp to user bash history'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 source_url 'https://github.com/stark525/bash_history_timestamp'
 
-version '0.4.1'
+version '0.4.2'
 
 depends 'line', '~> 0.6.1'
