@@ -17,9 +17,9 @@ You can configure the way the timestamp is formatted in the attributes file.  De
 |`['bash_history_timestamp']['managed_users']`|`['root']`||Manage only root user|
 
 ## Testing
-There are kitchen tests associated with CentOS 6.5.  
+There are kitchen tests associated with CentOS 5.10, 6.6, 7.1. 
 
-I've manually tested and verified this cookbook with other Linux distros.
+I've manually tested and verified this cookbook with other Linux distros, but only CentOS 5+ is officially supported.
 
 Serverspec tests may fail because when running the spec it does not actually create a login shell.  `man bash` for details. YMMV when running `kitchen test` with other vagrant boxes.
 
